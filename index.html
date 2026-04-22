@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julieta cumple 30</title>
+<style>
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background: radial-gradient(circle at top,#1a001f,#000000);
+color:white;
+text-align:center;
+}
+h1{
+font-size:52px;
+color:gold;
+margin-top:20px;
+}
+h2{
+color:#ff77c8;
+}
+.foto{
+width:70%;
+max-width:420px;
+border-radius:20px;
+box-shadow:0 0 25px #ff4fc3;
+transition:1s;
+}
+button{
+margin-top:20px;
+padding:14px 28px;
+font-size:18px;
+background:#ff2d8f;
+border:none;
+border-radius:20px;
+color:white;
+cursor:pointer;
+}
+.qr{
+width:160px;
+margin-top:10px;
+}
+.detalles{
+margin-top:20px;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>De bebé a hoy...</h2>
+
+<div>
+<img id="foto" class="foto" src="bebe.jpg">
+</div>
+
+<h2 id="texto">Bebé</h2>
+
+<h1>¡Julieta cumple 30!</h1>
+
+<div class="detalles">
+<p>📅 30 de Mayo</p>
+<p>⏰ 13:30 hs</p>
+<p>📍 Quinta Guernica - Japón 2455</p>
+</div>
+
+<button onclick="abrirMapa()">Ver ubicación</button>
+
+<h2>Sumá tu canción</h2>
+<img class="qr" src="qr_playlist.png">
+<p>Escaneá el QR para agregar música a la playlist</p>
+
+<button onclick="play()">Activar música</button>
+
+<audio id="musica">
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let fotos = ["bebe.jpg","adolescente.jpg","adulta.jpg"]
+let textos = ["Bebé","Adolescente","Adulta"]
+let i = 0
+
+setInterval(()=>{
+i++
+if(i>2){i=0}
+document.getElementById("foto").src = fotos[i]
+document.getElementById("texto").innerHTML = textos[i]
+},3000)
+
+function play(){
+document.getElementById("musica").play()
+}
+
+function abrirMapa(){
+window.open("https://maps.google.com/?q=Japón+2455+Guernica")
+}
+</script>
+
+</body>
+</html>
